@@ -6,6 +6,11 @@
   "directories": {
     "lib": "./dist"
   },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "prepublish": ". ./resources/prepublish.sh",
     "test": "npm run lint",
