@@ -1,4 +1,4 @@
-# eslint-config-playlist [![Build Status](https://travis-ci.org/playlist/eslint-config-playlist.svg?branch=master)](https://travis-ci.org/playlist/eslint-config-playlist) [![npm module](https://www.npmjs.com/package/playlist-js)](https://img.shields.io/npm/v/eslint-config-playlist.svg)
+# eslint-config-playlist [![Build Status](https://travis-ci.org/playlist/eslint-config-playlist.svg?branch=master)](https://travis-ci.org/playlist/eslint-config-playlist) [![npm module](https://img.shields.io/npm/v/eslint-config-playlist.svg)](https://www.npmjs.com/package/playlist-js)
 
 Shared `eslint` configuration for Playlist projects.
 
