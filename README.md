@@ -16,7 +16,7 @@ For project-specific configurations, use the following format:
 
 ```json
 {
-  "extends": "eslint-config-playlist/lib/react"
+  "extends": "eslint-config-playlist/dist/react"
 }
 ```
 
