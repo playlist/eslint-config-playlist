@@ -4,18 +4,7 @@ export default {
     'babel'
   ],
   'ecmaFeatures': {
-    'modules': true,
-    'jsx': true
-  },
-  'env': {
-    'browser': true,
-    'node': true,
-    'es6': true
-  },
-  'globals': {
-    '__DEV__': true,
-    '__SERVER__': true,
-    '__DEVTOOLS__': true
+    'modules': true
   },
   'rules': {
     'comma-dangle': [2, 'never'],
