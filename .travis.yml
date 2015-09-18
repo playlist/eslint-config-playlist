@@ -1,20 +1,28 @@
 language: node_js
-
 node_js:
-  - "node"
-  - "iojs"
-  - "0.12"
-  - "0.10"
-
+- node
+- iojs
+- '0.12'
+- '0.10'
 before_install:
-  - npm config set spin false --global
-
+- npm config set spin false --global
 script:
-  - npm run lint && npm run check && (if [[ "$TRAVIS_JOB_NUMBER" == *.1 ]]; then npm run cover:lcov; else npm run testonly; fi)
-
+- npm run lint && npm run check && (if [[ "$TRAVIS_JOB_NUMBER" == *.1 ]]; then npm
+  run cover:lcov; else npm run testonly; fi)
 after_failure:
-  - (cd resources; python travis_after_all.py)
-
+- "(cd resources; python travis_after_all.py)"
 after_success:
-  - (cd resources; python travis_after_all.py)
-  - export $(cat resources/.to_export_back)
+- "(cd resources; python travis_after_all.py)"
+- export $(cat resources/.to_export_back)
+deploy:
+  provider: npm
+  email: code@playlist.com
+  api_key:
+    secure: bGzigi/AaEgjLtbeqZ9HwqRdqg+BV6zUqNJwxYkkSUgsusLSwY5vLzo6GmNmsPME1lUwjHqW/kXc6d6ctgr5p7oFSdC76y44C7MENcmgX+n1SZ4BbgL1PIIDBGtvJ8V+PkxJTYpX5VPvWDwRBaERxYuS/F1WyuhxWo1fUSoz3KDVucB8wslVb5hfXGBmQf8A2oB2569wb3Hy7eySHM11wks1ZTMRNqVoWAAZZeItCXV1cw3LHZQoRJFuXCN6Mc5XW0PnoD+ccFwHknIOhYEK1GprswBbbdTCITu142Tj5AmTJEauLAgxx0NRUr2WFMvoqNbxrtoTUT3xV8mspMRb4sGVHkRYZ5mWqJ9OOIoWNizHUaplDw6dH++VyvY44pOIflP0hwP0OrEHwMBon27BuWAmG2f6Bq7qnckBGGdivEwAqUutnHULYFRXQ1C1DqIs509LqmJU49gT+pg1tQPwL5zFSXpXjrYFoEwJXU4HI02vfefb/J5OfIiYWu4krM5hJPIfIwmVjFp4KHapNNpMVyKw73AxBElX06quX87iQTV4h9SSb79uRZeqjoV+MiCmD+zDg3ZkRjt040SIiKVn5uf206ZNktTSmXp+RbO3qN8pNm3jyLZ8r0lYvisiqfK/b6w/1HTY3i//PCVzyX+Y/C/Xv2T4JZQUF6aMabJbUg8=
+  on:
+    tags: true
+    branch: master
+    condition: "$BUILD_LEADER$BUILD_AGGREGATE_STATUS = YESothers_succeeded"
+notifications:
+  slack:
+    secure: 1SMKmc1kjgZclc5AcM8Z3I1qYD0lvuql32WwobOsVJy9T3R+zXTmdZVThaVGgjdKw1+UTXZPvJMdUiN+7z+mkBInv3SxfiaQfjbPpDEDzq/Ye/3A2PKNwbwYPr1h7CKZhjse6rGHQFEbmr4l5sCz3iTauNX7iEsDIQQqWP+zg6STMY+aYKUIXOjb+v7aqo6+bsnkLplw3PkNCSvVznNrkOyQH7l8ogWLYHg+IM1/jzDmFZ3jWOp6Y1uRrUDL8hTksk8oKhwTElAbF2AbuCO814cNL6EYTqp9bLGK4BzX2rGkx07HkNSCEGmaVsAQp0UwcLwR3zLnzaEfC/EB2BXE0iDZqg8LDE+MkYm4U5zVZqJKHeAx6gjYZaH7YKOyzvkMGzMpE+SJ/r+ZwIvndAas0eWyw1YpsyJ2V6Gy+FZOSxuHyZcvHQPvCbw2SGXd2f49YP4scFGYoNvqMg0hz7O6VVF8rQLShPkfXegTCdyhMb8/2VwrKjfuov2+gTp0pSwFTIOS8CXGbYC9lvZTvYhBIopaydqaex5bvd5JnCq7+4k+/GRKlzqVVX0ozQd080yD7mshtlu7EjtcW71is0epSWW6hgf0s04FMGam/peHEx578H3+e1TFR5gPGuc2CyVWIhPbY8FlmkK+uGLjAfmKk4tzlVQ/X7TdPNwEDk0w9CM=
