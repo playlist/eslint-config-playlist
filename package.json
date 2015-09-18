@@ -15,7 +15,7 @@
     "prepublish": ". ./resources/prepublish.sh",
     "test": "npm run lint",
     "lint": "eslint src",
-    "build": "rm -rf dist/* && which babel && babel --optional runtime src --out-dir dist && node -e \"console.log(JSON.stringify(require('./dist/index'), ' ', 2))\" > dist/index.eslintrc"
+    "build": "rm -rf dist/* && which babel && babel src --out-dir dist && node -e \"console.log(JSON.stringify(require('./dist/index'), ' ', 2))\" > dist/index.eslintrc"
   },
   "repository": {
     "type": "git",
@@ -33,7 +33,6 @@
   "devDependencies": {
     "babel": "^5.8.23",
     "babel-eslint": "^4.1.3",
-    "babel-runtime": "^5.8.24",
     "eslint": "^1.5.0",
     "eslint-plugin-babel": "^2.1.1"
   }

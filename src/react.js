@@ -1,5 +1,6 @@
 // Extend the base config
 import config from './base';
+import assign from './utils/assign';
 
 // Add react plugin
 config.plugins.push('react');
@@ -7,7 +8,7 @@ config.plugins.push('react');
 // Enable react syntax
 config.ecmaFeatures.jsx = true;
 
-config.rules = Object.assign({}, config.rules, {
+config.rules = assign({}, config.rules, {
   'react/display-name': 0,
   'react/jsx-boolean-value': [2, 'never'],
   'react/jsx-no-undef': 2,
