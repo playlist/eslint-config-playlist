@@ -1,0 +1,35 @@
+{
+  "name": "eslint-config-playlist",
+  "version": "1.0.0",
+  "description": "Shared eslint configuration for Playlist projects",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "./dist"
+  },
+  "scripts": {
+    "prepublish": ". ./resources/prepublish.sh",
+    "test": "npm run lint",
+    "lint": "eslint src",
+    "build": "rm -rf dist/* && which babel && babel --optional runtime src --out-dir dist && node -e \"console.log(JSON.stringify(require('./dist/index'), ' ', 2))\" > dist/index.eslintrc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/playlist/eslint-config-playlist.git"
+  },
+  "keywords": [
+    "eslint"
+  ],
+  "author": "Jacob Gillespie <jacob@playlist.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/playlist/eslint-config-playlist/issues"
+  },
+  "homepage": "https://github.com/playlist/eslint-config-playlist#readme",
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-eslint": "^4.1.3",
+    "babel-runtime": "^5.8.24",
+    "eslint": "^1.5.0",
+    "eslint-plugin-babel": "^2.1.1"
+  }
+}
